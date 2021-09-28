@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndBehavior : MonoBehaviour
 {
+    public AudioSource audioS;
     public string level;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class EndBehavior : MonoBehaviour
             cam.GetComponent<GlitchEffect>().flipIntensity = 1;
             cam.GetComponent<GlitchEffect>().colorIntensity = 1;
             Debug.Log("Bruh");
+            audioS.Play();
             StartCoroutine(delay(3));
             
         }
