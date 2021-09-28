@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void menuStart()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("OfficialLevel1");
     }
 
     public void quit()
