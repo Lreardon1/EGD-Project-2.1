@@ -242,7 +242,7 @@ MonoBehaviour:
   collider1: {fileID: 241023078}
   collider2: {fileID: 1606224241}
   pauseMenu: {fileID: 431123799}
-  workNormally: 0
+  workNormally: 1
 --- !u!1 &241023078
 GameObject:
   m_ObjectHideFlags: 0
