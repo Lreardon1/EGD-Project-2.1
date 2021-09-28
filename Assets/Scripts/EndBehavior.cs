@@ -20,11 +20,12 @@ public class EndBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Camera cam = FindObjectOfType<Camera>();
         if (other.tag == "Player")
         {
-            other.GetComponentInChildren<GlitchEffect>().intensity = 1;
-            other.GetComponentInChildren<GlitchEffect>().flipIntensity = 1;
-            other.GetComponentInChildren<GlitchEffect>().colorIntensity = 1;
+            cam.GetComponent<GlitchEffect>().intensity = 1;
+            cam.GetComponent<GlitchEffect>().flipIntensity = 1;
+            cam.GetComponent<GlitchEffect>().colorIntensity = 1;
             Debug.Log("Bruh");
             StartCoroutine(delay(3));
             
