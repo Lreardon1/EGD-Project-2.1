@@ -8,6 +8,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject collider1;
     public GameObject collider2;
     public GameObject pauseMenu;
+    public bool workNormally = true;
 
     private SimpleCameraFollow camFollow;
 
@@ -35,16 +36,22 @@ public class PauseMenuManager : MonoBehaviour
             if(!paused)
             {
                 pauseMenu.SetActive(true);
-                collider1.SetActive(true);
-                collider2.SetActive(true);
+                if(!workNormally)
+                {
+                    collider1.SetActive(true);
+                    collider2.SetActive(true);
+                }
 
                 if (camFollow != null)
                     camFollow.enabled = false;
             } else
             {
                 pauseMenu.SetActive(false);
-                collider1.SetActive(false);
-                collider2.SetActive(false);
+                if (!workNormally)
+                {
+                    collider1.SetActive(false);
+                    collider2.SetActive(false);
+                }
 
                 if (camFollow != null)
                     camFollow.enabled = true;
