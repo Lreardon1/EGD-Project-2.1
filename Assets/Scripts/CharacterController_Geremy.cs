@@ -27,14 +27,14 @@ public class CharacterController_Geremy : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Mathf.Abs(rigidBd.velocity.y) < 0.01f)
         {
             rigidBd.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            Debug.Log("Jump button pressed");
+            //Debug.Log("Jump button pressed");
         }
 
         //Scalling demo
         //*
         if (Input.GetKeyDown(KeyCode.G) == true)
         {
-            scaleUp();
+            //scaleUp();
         }
 
         //Debug.Log("Velocity.y = " + rigidBd.velocity.y);
