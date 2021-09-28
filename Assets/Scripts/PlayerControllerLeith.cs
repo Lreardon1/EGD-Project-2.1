@@ -35,7 +35,7 @@ public class PlayerControllerLeith : MonoBehaviour
 
         if(jump)
         {
-            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         }
 
         jump = false;
