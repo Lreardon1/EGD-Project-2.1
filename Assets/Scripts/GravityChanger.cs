@@ -25,9 +25,9 @@ public class GravityChanger : MonoBehaviour
         collision.GetComponent<CharacterController_Geremy>().jumpForce = 10;
         collision.GetComponent<Rigidbody2D>().gravityScale = grav;
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        collision.GetComponent<CharacterController_Geremy>().jumpForce = 10;
-        collision.GetComponent<Rigidbody2D>().gravityScale = 1;
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    collision.GetComponent<CharacterController_Geremy>().jumpForce = 10;
+    //    collision.GetComponent<Rigidbody2D>().gravityScale = 1;
+    //}
 }
