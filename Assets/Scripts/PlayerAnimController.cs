@@ -8,6 +8,7 @@ public class PlayerAnimController : MonoBehaviour
     public Rigidbody2D playerRB;
     public SpriteRenderer sr;
     public bool transparent = true;
+    public bool flipPlayer = false;
 
 
     // Start is called before the first frame update
@@ -22,11 +23,17 @@ public class PlayerAnimController : MonoBehaviour
         float movement = Input.GetAxis("Horizontal");
         if (movement > 0)
         {
-            sr.flipX = false;
+            if(!flipPlayer)
+                sr.flipX = false;
+            else
+                sr.flipX = true;
         }
         else if (movement < 0)
         {
-            sr.flipX = true;
+            if(!flipPlayer)
+                sr.flipX = true;
+            else
+                sr.flipX = false;
         }
 
         if(transparent)
