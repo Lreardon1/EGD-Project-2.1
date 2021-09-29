@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject pauseMenu;
     public bool workNormally = true;
 
+    private GameObject player;
     private SimpleCameraFollow camFollow;
+    private Vector3 playerPausePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Awake()
     {
+        player = FindObjectOfType<CharacterController_Geremy>().gameObject;
         Camera mainCam = FindObjectOfType<Camera>();
         camFollow = mainCam.GetComponent<SimpleCameraFollow>();
 
@@ -42,6 +46,9 @@ public class PauseMenuManager : MonoBehaviour
                     collider2.SetActive(true);
                 }
 
+                playerPausePosition = player.transform.position;
+                
+
                 if (camFollow != null)
                     camFollow.enabled = false;
             } else
@@ -51,12 +58,34 @@ public class PauseMenuManager : MonoBehaviour
                 {
                     collider1.SetActive(false);
                     collider2.SetActive(false);
-                }
+                } 
 
                 if (camFollow != null)
                     camFollow.enabled = true;
             }
             paused = !paused;
         }
+
+        if (workNormally && paused)
+            player.transform.position = playerPausePosition;
+    }
+
+    public void UnPause()
+    {
+        pauseMenu.SetActive(false);
+        if (!workNormally)
+        {
+            collider1.SetActive(false);
+            collider2.SetActive(false);
+        }
+
+        if (camFollow != null)
+            camFollow.enabled = true;
+        paused = !paused;
+    }
+    
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
