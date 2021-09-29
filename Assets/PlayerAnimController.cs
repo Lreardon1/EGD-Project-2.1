@@ -7,6 +7,7 @@ public class PlayerAnimController : MonoBehaviour
     public Animator playerAnimator;
     public Rigidbody2D playerRB;
     public SpriteRenderer sr;
+    public bool transparent = true;
 
 
     // Start is called before the first frame update
@@ -27,19 +28,42 @@ public class PlayerAnimController : MonoBehaviour
         {
             sr.flipX = true;
         }
-        if (Mathf.Abs(playerRB.velocity.y) > 0.01f)
+
+        if(transparent)
         {
-            playerAnimator.Play("Player_In_Air");
-        } 
-        else
+            if (Mathf.Abs(playerRB.velocity.y) > 0.01f)
+            {
+                playerAnimator.Play("Player_In_Air");
+            }
+            else
+            {
+                if (Mathf.Abs(movement) > 0.01f)
+                {
+                    playerAnimator.Play("Player_Run");
+                }
+                else
+                {
+                    playerAnimator.Play("Player_Idle");
+                }
+            }
+        } else
         {
-            if(Mathf.Abs(movement) > 0.01f)
+            if (Mathf.Abs(playerRB.velocity.y) > 0.01f)
             {
-                playerAnimator.Play("Player_Run");
-            } else
+                playerAnimator.Play("Player_In_Air_NT");
+            }
+            else
             {
-                playerAnimator.Play("Player_Idle");
+                if (Mathf.Abs(movement) > 0.01f)
+                {
+                    playerAnimator.Play("Player_Run_NT");
+                }
+                else
+                {
+                    playerAnimator.Play("Player_Idle_NT");
+                }
             }
         }
+        
     }
 }
