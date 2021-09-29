@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7495f42a8ba65e849b92fe9041fb5a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  moveSpeed: 5
-  jumpForce: 10
+  rb: {fileID: 219670253187734856}
+  moveSpeed: 500
+  jumpForce: 12
 --- !u!61 &219670253187734857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -213,8 +213,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 3431158874309284910}
-  idleAnim: {fileID: 0}
-  runAnim: {fileID: 0}
-  airAnim: {fileID: 0}
   playerRB: {fileID: 219670253187734856}
   sr: {fileID: 219670253187734966}

@@ -9,6 +9,8 @@ public class CharacterController_Geremy : MonoBehaviour
 
     private Rigidbody2D rigidBd;
     private Collider2D collider;
+    private bool scaleTooLarge = false;
+    private Vector3 stayLocation = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,8 @@ public class CharacterController_Geremy : MonoBehaviour
         }
 
         //Debug.Log("Velocity.y = " + rigidBd.velocity.y);
+        if (scaleTooLarge)
+            this.transform.position = stayLocation;
 
         //*/
     }
@@ -57,13 +61,16 @@ public class CharacterController_Geremy : MonoBehaviour
     public void scaleUp()
     {
         transform.localScale *= 2;
-        Debug.Log("Scaler PowerUp activated");
 
         //*
-        if (transform.localScale.x > 8)
+        if (transform.localScale.x > 4)
         {
-            float d = transform.localScale.x / 2;
+            rigidBd.constraints = RigidbodyConstraints2D.FreezeAll;
+            scaleTooLarge = true;
+            stayLocation = this.transform.position;
+            float d = transform.localScale.x / 4;
             GetComponent<BoxCollider2D>().size = new Vector2(1f, 1f / d);
+            GetComponent<BoxCollider2D>().offset = Vector2.zero;
         }
         //*/
     }
